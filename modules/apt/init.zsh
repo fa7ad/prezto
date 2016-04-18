@@ -13,9 +13,9 @@ compdef _acs acs='apt-cache search'
 alias afs='apt-file search --regexp'
 compdef _afs afs='apt-file search --regexp'
 
-# These are apt-get only
-alias ags='apt-get source'   # asrc
-compdef _ags ags='apt-get source'
+# These are aptitude only
+alias ags='aptitude source'   # asrc
+compdef _ags ags='aptitude source'
 
 alias acp='apt-cache policy' # app
 compdef _acp acp='apt-cache policy'
@@ -27,34 +27,34 @@ compdef _afu afu='sudo apt-file update'
 alias ppap='sudo ppa-purge'
 compdef _ppap ppap='sudo ppa-purge'
 
-alias ag='sudo apt-get'            # age - but without sudo
-alias aga='sudo apt-get autoclean' # aac
+alias ag='sudo aptitude'            # age - but without sudo
+alias aga='sudo aptitude autoclean' # aac
 alias agar='sudo apt-get autoremove'
-alias agb='sudo apt-get build-dep' # abd
-alias agc='sudo apt-get clean'     # adc
-alias agd='sudo apt-get dselect-upgrade' # ads
-alias agi='sudo apt-get install'  # ai
-alias agp='sudo apt-get purge'    # ap
-alias agr='sudo apt-get remove'   # ar
-alias agu='sudo apt-get update'   # ad
-alias agud='sudo apt-get update && sudo apt-get dist-upgrade' #adu
-alias agug='sudo apt-get upgrade' # ag
-alias aguu='sudo apt-get update && sudo apt-get upgrade'      #adg
+alias agb='sudo aptitude build-dep' # abd
+alias agc='sudo aptitude clean'     # adc
+alias agd='sudo aptitude dselect-upgrade' # ads
+alias agi='sudo aptitude install'  # ai
+alias agp='sudo aptitude purge'    # ap
+alias agr='sudo aptitude remove'   # ar
+alias agu='sudo aptitude update'   # ad
+alias agud='sudo aptitude update && sudo aptitude full-upgrade' #adu
+alias agug='sudo aptitude upgrade' # ag
+alias aguu='sudo aptitude update && sudo aptitude upgrade'      #adg
 alias agar='sudo apt-get autoremove'
 
-compdef _ag ag='sudo apt-get'
-compdef _aga aga='sudo apt-get autoclean'
+compdef _ag ag='sudo aptitude'
+compdef _aga aga='sudo aptitude autoclean'
 compdef _agar agar='sudo apt-get autoremove'
-compdef _agb agb='sudo apt-get build-dep'
-compdef _agc agc='sudo apt-get clean'
-compdef _agd agd='sudo apt-get dselect-upgrade'
-compdef _agi agi='sudo apt-get install'
-compdef _agp agp='sudo apt-get purge'
-compdef _agr agr='sudo apt-get remove'
-compdef _agu agu='sudo apt-get update'
-compdef _agud agud='sudo apt-get update && sudo apt-get dist-upgrade'
-compdef _agug agug='sudo apt-get upgrade'
-compdef _aguu aguu='sudo apt-get update && sudo apt-get upgrade'
+compdef _agb agb='sudo aptitude build-dep'
+compdef _agc agc='sudo aptitude clean'
+compdef _agd agd='sudo aptitude dselect-upgrade'
+compdef _agi agi='sudo aptitude install'
+compdef _agp agp='sudo aptitude purge'
+compdef _agr agr='sudo aptitude remove'
+compdef _agu agu='sudo aptitude update'
+compdef _agud agud='sudo aptitude update && sudo aptitude full-upgrade'
+compdef _agug agug='sudo aptitude upgrade'
+compdef _aguu aguu='sudo aptitude update && sudo aptitude upgrade'
 compdef _agar agar='sudo apt-get autoremove'
 
 # Remove ALL kernel images and headers EXCEPT the one in use
@@ -83,8 +83,8 @@ function aar {
     PACKAGE=${1##*/}
   fi
 
-  sudo apt-add-repository $1 && sudo apt-get update
-  sudo apt-get install $PACKAGE
+  sudo apt-add-repository $1 && sudo aptitude update
+  sudo aptitude install $PACKAGE
 }
 
 # Prints apt history
