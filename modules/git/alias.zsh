@@ -29,6 +29,10 @@ zstyle -s ':prezto:module:git:status:ignore' submodules '_git_status_ignore_subm
 # Git
 alias g='git'
 
+# Add (a)
+alias ga='git add'
+alias gaa='git add --all'
+
 # Branch (b)
 alias gb='git branch'
 alias gbc='git checkout -b'
@@ -44,6 +48,7 @@ alias gbS='git show-branch -a'
 # Commit (c)
 alias gc='git commit --verbose'
 alias gca='git commit --verbose --all'
+alias gcam='git commit --verbose --all --message'
 alias gcm='git commit --message'
 alias gco='git checkout'
 alias gcO='git checkout --patch'
@@ -117,6 +122,7 @@ alias gmt='git mergetool'
 
 # Push (p)
 alias gp='git push'
+alias gpv='git push --verbose'
 alias gpf='git push --force'
 alias gpa='git push --all'
 alias gpA='git push --all && git push --tags'
@@ -133,6 +139,7 @@ alias grs='git rebase --skip'
 
 # Remote (R)
 alias gR='git remote'
+alias gRv='git remote --verbose'
 alias gRl='git remote --verbose'
 alias gRa='git remote add'
 alias gRx='git remote rm'
