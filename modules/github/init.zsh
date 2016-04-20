@@ -75,4 +75,5 @@ function git.io() {
 }
 
 # End Functions #############################################################
+source "${0:h}/alias.zsh"
 
