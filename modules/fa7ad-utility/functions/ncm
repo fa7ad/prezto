@@ -1,0 +1,9 @@
+# Run ncmpcpp only if mpd is running
+
+if ps ax | grep -v grep | grep mpd > /dev/null; then
+  ncmpcpp
+else
+  echo "MPD is not running..."
+  return 1
+fi
+

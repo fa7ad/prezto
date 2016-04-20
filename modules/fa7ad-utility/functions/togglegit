@@ -1,0 +1,10 @@
+# Toggle the Version control in the current folder
+if [ -d ".git" ]; then
+  mv ".git" "no.git"
+elif [ -d "no.git" ]; then
+  mv "no.git" ".git"
+else
+  echo -e '\033[7;31mNo trace of a git repo in this directory. Sorry!'
+  return 1
+fi
+

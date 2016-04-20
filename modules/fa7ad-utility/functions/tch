@@ -1,0 +1,8 @@
+# Touch files recursively, creating directories along the way
+if [ $# -lt 1 ];then
+  echo "Missing arguments"
+  return 1
+fi
+for f in "$@"; do
+  mkdir -p "$(dirname $f)" && touch $f && cd "$(dirname $f)"
+done

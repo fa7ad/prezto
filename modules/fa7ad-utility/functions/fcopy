@@ -1,0 +1,3 @@
+# Copy a file to the clipboard
+
+xsel -ib < $1
