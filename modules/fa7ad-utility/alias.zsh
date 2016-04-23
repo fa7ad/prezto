@@ -19,7 +19,7 @@ alias sl='/usr/bin/env sl && l'
 
 # Python3
 alias python='python3'
-alias pip3='sudo pip3'
+alias pip3='sudo -H pip3'
 
 
 # Obvious short hands
