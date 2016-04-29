@@ -103,6 +103,7 @@ alias gir='git reset'
 alias giR='git reset --patch'
 alias gix='git rm -r --cached'
 alias giX='git rm -rf --cached'
+alias giS='git status'
 
 # Log (l)
 alias gl='git log --topo-order --pretty=format:"${_git_log_medium_format}"'
