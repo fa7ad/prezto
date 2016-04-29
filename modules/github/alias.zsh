@@ -1,6 +1,8 @@
 # aliases for github
-alias ogit="/usr/bin/git"
-alias git="hub"
+if (( $+commands[hub] )); then
+    alias ogit="/usr/bin/git"
+    alias git="hub"
+fi
 alias gcr="git create"
 alias gfo="git fork"
 alias gpr="git pull-request"
