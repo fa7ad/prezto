@@ -33,6 +33,9 @@ alias g='git'
 alias ga='git add'
 alias gaa='git add --all'
 
+# Init (I)
+alias gI='git init'
+
 # Branch (b)
 alias gb='git branch'
 alias gbc='git checkout -b'
