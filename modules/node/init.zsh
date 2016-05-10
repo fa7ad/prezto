@@ -32,3 +32,6 @@ if (( $+commands[npm] )); then
 
   unset cache_file
 fi
+
+# Load npm aliases
+source "${0:h}/alias.zsh"
