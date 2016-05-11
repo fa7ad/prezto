@@ -4,5 +4,5 @@ if [ $# -lt 1 ];then
   return 1
 fi
 for f in "$@"; do
-  mkdir -p "$(dirname $f)" && touch $f && cd "$(dirname $f)"
+  mkdir -p "$(dirname $f)" && touch $f
 done
