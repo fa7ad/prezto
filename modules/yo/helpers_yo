@@ -1,0 +1,80 @@
+# location of generator-list file
+__yeoman_generatorListFile="$__yeoman_pluginDir"/generators-list.txt
+export __yeoman_generatorListFile
+
+
+# terms to blacklist/skip
+local -a blacklist; blacklist=('yeoman-generator' 'webapp')
+local -a show_description; show_description='false'
+
+
+
+# @description get the list of generators. If cache is available use it, otherwise use default values
+# @param    $1|$cache  File to store npm search results
+# @return    void
+__yo_getGeneratorList() {
+
+    generator=( # default generator
+        webapp:'Default Yeoman generator for scaffolding out a front-end web app'
+    )
+    __yo_getGenerators
+}
+
+
+# @description Store global generators in YEOMAN_PLUGIN_DIR/GENERATOR_LIST.txt
+# @return    void
+__yo_setGlobalGenerators() {
+  [[ -e $__yeoman_generatorListFile ]] && rm -rf $__yeoman_generatorListFile
+  __yo_get_installed_generators | sort -u > "$__yeoman_generatorListFile"
+
+  chmod u=rw,g=r,o= "$__yeoman_generatorListFile"
+}
+
+
+# @description Get generator name and description
+# @param    $1|generatorPath  global path as return by 'npm list --global'
+#           (@see __yo_setGlobalGenerators)
+# @return    string
+__yo_getGeneratorMetadata() {
+  generatorPath="$1"
+  package="$(basename "$generatorPath")"
+  pkg="${package//generator-}"
+  description="${pkg}'s generator"
+
+  if [[ $show_description == 'true' ]]; then
+    description="$(time __yo_getDescription "$package" &)"
+  fi
+
+  echo $(printf "%s:%s" "$pkg" "$description")
+}
+
+
+# @description Extract the description from package's JSON
+# @param    $1|${versions[1]}  take the first version in the list (not necessarily the oldest)
+# @return    string
+__yo_getDescription() {
+  packageInfo="$1"
+
+  description="$(npm view --silent "$packageInfo" description &)"
+  echo "$description"
+}
+
+__yo_get_installed_generators() {
+  command yo --generators | while read line; do __yo_getGeneratorMetadata "$line"; done
+}
+
+# @description Get package name and description from local or global packages:
+#              * a path is given, look for generators locally
+#              * no path given, get generators listed at startup (i.e. global)
+# @param    $1|modulePath  path to node_modules/ directory
+# @return    void
+__yo_getGenerators() {
+  # local generators suggestions
+  while IFS= read -r suggestion; do
+    # printf "%s\n" "$suggestion"
+    pkg="${suggestion%%:*}" # take only the key
+    (( $+blacklist[(r)$pkg] )) && continue # skip blacklisted items
+    (( $+generator[(r)$pkg] )) && continue # skip already present items
+    generator+=( "$suggestion" )
+  done < <( __yo_get_installed_generators)
+}
