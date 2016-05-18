@@ -1,0 +1,7 @@
+Available Generators::Available Generators:'s generator
+babel-module:babel-module's generator
+bspaulding-react-webpack:bspaulding-react-webpack's generator
+express:express's generator
+koa:koa's generator
+:'s generator
+webapp:webapp's generator
