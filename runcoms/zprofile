@@ -11,14 +11,16 @@
 
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER='open'
+elif [[ $(uname -r) =~ 'ARCH' ]]; then
+  export BROWSER='gnome-open'
 fi
 
 #
 # Editors
 #
 
-export EDITOR='nano'
-export VISUAL='nano'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER='less'
 
 #
