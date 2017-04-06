@@ -3,6 +3,7 @@
 
 # Look for pacaur, and add some useful functions if we have it.
 if (( $+commands[pacaur] )); then
+  alias pacaur='pacaur --color=auto'
   upgrade () {
     pacaur -Syu
   }
