@@ -20,7 +20,7 @@ if (( $+commands[pacaur] )); then
   alias yaloc='pacaur -Qi'         # Display information about a given package in the local database
   alias yalocs='pacaur -Qs'        # Search for package(s) in the local database
   alias yalst='pacaur -Qe'         # List installed packages, even those installed from AUR (they're tagged as "local")
-  alias yaorph='pacman -Rns $(pacman -Qtdq)'       # Remove orphans using pacaur
+  alias yaorph='pacaur -Rns $(pacaur -Qtdq)'       # Remove orphans using pacaur
   alias yaupd='pacaur -Sy'               # Update and refresh the local package database against repositories
   alias yainsd='pacaur -S --asdeps'        # Install given package(s) as dependencies of another package
   alias yamir='pacaur -Syy'                # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
