@@ -1,37 +1,37 @@
 # Archlinux zsh aliases and functions
 # Usage is also described at https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins
 
-# Look for yaourt, and add some useful functions if we have it.
-if (( $+commands[yaourt] )); then
+# Look for pacaur, and add some useful functions if we have it.
+if (( $+commands[pacaur] )); then
   upgrade () {
-    yaourt -Syu
+    pacaur -Syu
   }
-  alias yaconf='yaourt -C'        # Fix all configuration files with vimdiff
+  alias yaconf='pacaur -C'        # Fix all configuration files with vimdiff
   # Pacman - https://wiki.archlinux.org/index.php/Pacman_Tips
-  alias yaupg='yaourt -Syua'        # Synchronize with repositories before upgrading packages (AUR packages too) that are out of date on the local system.
-  alias yasu='yaourt --sucre'      # Same as yaupg, but without confirmation
-  alias yain='yaourt -S'           # Install specific package(s) from the repositories
-  alias yains='yaourt -U'          # Install specific package not from the repositories but from a file
-  alias yare='yaourt -R'           # Remove the specified package(s), retaining its configuration(s) and required dependencies
-  alias yarem='yaourt -Rns'        # Remove the specified package(s), its configuration(s) and unneeded dependencies
-  alias yarep='yaourt -Si'         # Display information about a given package in the repositories
-  alias yareps='yaourt -Ss'        # Search for package(s) in the repositories
-  alias yaloc='yaourt -Qi'         # Display information about a given package in the local database
-  alias yalocs='yaourt -Qs'        # Search for package(s) in the local database
-  alias yalst='yaourt -Qe'         # List installed packages, even those installed from AUR (they're tagged as "local")
-  alias yaorph='yaourt -Qtd'       # Remove orphans using yaourt
-  # Additional yaourt alias examples
+  alias yaupg='pacaur -Syua'        # Synchronize with repositories before upgrading packages (AUR packages too) that are out of date on the local system.
+  alias yasu='pacaur --sucre'      # Same as yaupg, but without confirmation
+  alias yain='pacaur -S'           # Install specific package(s) from the repositories
+  alias yains='pacaur -U'          # Install specific package not from the repositories but from a file
+  alias yare='pacaur -R'           # Remove the specified package(s), retaining its configuration(s) and required dependencies
+  alias yarem='pacaur -Rns'        # Remove the specified package(s), its configuration(s) and unneeded dependencies
+  alias yarep='pacaur -Si'         # Display information about a given package in the repositories
+  alias yareps='pacaur -Ss'        # Search for package(s) in the repositories
+  alias yaloc='pacaur -Qi'         # Display information about a given package in the local database
+  alias yalocs='pacaur -Qs'        # Search for package(s) in the local database
+  alias yalst='pacaur -Qe'         # List installed packages, even those installed from AUR (they're tagged as "local")
+  alias yaorph='pacaur -Qtd'       # Remove orphans using pacaur
+  # Additional pacaur alias examples
   if (( $+commands[abs] && $+commands[aur] )); then
-    alias yaupd='yaourt -Sy && sudo abs && sudo aur'  # Update and refresh the local package, ABS and AUR databases against repositories
+    alias yaupd='pacaur -Sy && sudo abs && sudo aur'  # Update and refresh the local package, ABS and AUR databases against repositories
   elif (( $+commands[abs] )); then
-    alias yaupd='yaourt -Sy && sudo abs'   # Update and refresh the local package and ABS databases against repositories
+    alias yaupd='pacaur -Sy && sudo abs'   # Update and refresh the local package and ABS databases against repositories
   elif (( $+commands[aur] )); then
-    alias yaupd='yaourt -Sy && sudo aur'   # Update and refresh the local package and AUR databases against repositories
+    alias yaupd='pacaur -Sy && sudo aur'   # Update and refresh the local package and AUR databases against repositories
   else
-    alias yaupd='yaourt -Sy'               # Update and refresh the local package database against repositories
+    alias yaupd='pacaur -Sy'               # Update and refresh the local package database against repositories
   fi
-  alias yainsd='yaourt -S --asdeps'        # Install given package(s) as dependencies of another package
-  alias yamir='yaourt -Syy'                # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
+  alias yainsd='pacaur -S --asdeps'        # Install given package(s) as dependencies of another package
+  alias yamir='pacaur -Syy'                # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 else
  upgrade() {
    sudo pacman -Syu
