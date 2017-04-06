@@ -3,13 +3,13 @@
 
 # Look for pacaur, and add some useful functions if we have it.
 if (( $+commands[pacaur] )); then
-  alias pacaur='pacaur --color=auto'
+  alias pacaur='pacaur --color=auto --noedit'
   upgrade () {
     pacaur -Syu
   }
   alias yaconf='pacaur -C'        # Fix all configuration files with vimdiff
   # Pacman - https://wiki.archlinux.org/index.php/Pacman_Tips
-  alias yaupg='pacaur -Syua'        # Synchronize with repositories before upgrading packages (AUR packages too) that are out of date on the local system.
+  alias yaupg='pacaur -Syu --devel'        # Synchronize with repositories before upgrading packages (AUR packages too) that are out of date on the local system.
   alias yasu='pacaur --sucre'      # Same as yaupg, but without confirmation
   alias yain='pacaur -S'           # Install specific package(s) from the repositories
   alias yains='pacaur -U'          # Install specific package not from the repositories but from a file
