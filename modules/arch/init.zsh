@@ -10,11 +10,11 @@ if (( $+commands[pacaur] )); then
   alias yaconf='pacaur -C'        # Fix all configuration files with vimdiff
   # Pacman - https://wiki.archlinux.org/index.php/Pacman_Tips
   alias yaupg='pacaur -Syu --devel'        # Synchronize with repositories before upgrading packages (AUR packages too) that are out of date on the local system.
-  alias yasu='pacaur --sucre'      # Same as yaupg, but without confirmation
+  alias yasu='pacaur -Syu --noconfirm'      # Same as yaupg, but without confirmation
   alias yain='pacaur -S'           # Install specific package(s) from the repositories
   alias yains='pacaur -U'          # Install specific package not from the repositories but from a file
-  alias yare='pacaur -R'           # Remove the specified package(s), retaining its configuration(s) and required dependencies
-  alias yarem='pacaur -Rns'        # Remove the specified package(s), its configuration(s) and unneeded dependencies
+  alias yarem='pacaur -R'           # Remove the specified package(s), retaining its configuration(s) and required dependencies
+  alias yare='pacaur -Rns'        # Remove the specified package(s), its configuration(s) and unneeded dependencies
   alias yarep='pacaur -Si'         # Display information about a given package in the repositories
   alias yareps='pacaur -Ss'        # Search for package(s) in the repositories
   alias yaloc='pacaur -Qi'         # Display information about a given package in the local database
@@ -22,6 +22,7 @@ if (( $+commands[pacaur] )); then
   alias yalst='pacaur -Qe'         # List installed packages, even those installed from AUR (they're tagged as "local")
   alias yaorph='pacaur -Rns $(pacaur -Qtdq)'       # Remove orphans using pacaur
   alias yaupd='pacaur -Sy'               # Update and refresh the local package database against repositories
+  alias yaug='pacaur -Su'               # Update without refreshing repositories
   alias yainsd='pacaur -S --asdeps'        # Install given package(s) as dependencies of another package
   alias yamir='pacaur -Syy'                # Force refresh of all package lists after updating /etc/pacman.d/mirrorlist
 else
