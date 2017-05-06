@@ -255,4 +255,10 @@ if ! zstyle -t ':prezto:module:git:alias' skip 'yes'; then
   alias gwC='git clean -f'
   alias gwx='git rm -r'
   alias gwX='git rm -rf'
+
+  # My custom aliases
+  alias gI='git init' # init
+  alias gaa='git add -A' # add all
+  alias gis='git status' # status
+  alias gpv='git push -v' # push verbose
 fi
