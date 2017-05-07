@@ -27,4 +27,4 @@ alias sshx='ssh -X'
 
 
 # Open files
-alias opn='xdg-open'
+alias opn='gio open'
